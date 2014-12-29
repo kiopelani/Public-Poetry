@@ -1,7 +1,18 @@
 <li class="comment<%=comment.id%>">
-          <%= link_to "^", upvote_comment_path(@poem, comment), remote: true, method: :patch %>
-          <%= link_to "v", downvote_comment_path(@poem, comment), remote:true, method: :patch %>
+  <div class="vote">
+    <div class="upvote">
+      <%= link_to image_tag('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-up-b-128.png', :width => 20), upvote_comment_path(@poem, comment), remote: true, method: :patch %>
+    </div>
+    <div class="comment-vote-count">
         <%=comment.votes%>
-        <%= link_to comment.content, poem_comment_path(@poem, comment) %></li>
+    </div>
+    <div class="downvote">
+      <%= link_to image_tag("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-down-b-512.png", :width => 20), downvote_comment_path(@poem, comment), remote:true, method: :patch %>
+    </div>
+  </div>
+  <div class="comment-link">
+        <%= link_to comment.content, poem_comment_path(@poem, comment) %>
+  </div>
+</li>
 
 

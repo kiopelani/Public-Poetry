@@ -18,3 +18,27 @@
   font-size: 2em;
   text-align: center;
 }
+
+.comment-vote-count {
+  font-size: 1em;
+  text-align: center;
+}
+
+.comments {
+  list-style-type: none;
+}
+
+.comments li {
+  padding-bottom: 50px;
+  border: 1px solid gray;
+}
+
+.lower-nav {
+  clear: both;
+  border: 1px solid red;
+}
+
+.comment-form {
+  clear: both;
+}
+
