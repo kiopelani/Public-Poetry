@@ -1,6 +1,9 @@
 <h1><%= @poem.title %></h1>
 <h2><%= @poem.content %></h2>
-<h3><%= @poem.votes %> votes</h3>
+<!-- <h3><%= @poem.votes %> votes</h3>
+ -->
+<%= render 'poem', :poem => @poem %>
+
 
 <%= link_to 'edit', edit_poem_path(@poem) %>
 <%= link_to 'destroy', poem_path(@poem), :method => :delete, data: {:confirm => 'Are you sure?'} %>

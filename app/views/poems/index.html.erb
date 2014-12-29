@@ -10,14 +10,15 @@
       <%= f.label :title %>
       <%= f.text_field :title %><br />
       <%= f.label :content %>
-      <%= f.text_field :content %><br />
+      <%= f.text_area :content %><br />
       <%= f.submit "Add" %>
       <% end %>
     </div>
 
+    <h4>All Poems</h4>
     <ul class="poems">
-      <% @poems.sort_by(&:created_at).reverse.each do |poem| %>
-      <%= render 'poem', :poem => poem %>
+      <% @poems.sort_by(&:votes).reverse.each do |poem| %>
+        <%= render 'poem_title', :poem => poem %>
       <% end %>
     </ul>
 
