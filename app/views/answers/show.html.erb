@@ -1,0 +1,10 @@
+<h1><%= @question.content %></h1>
+<h2><%= @answer.content %></h2>
+<h3><%= @answer.votes %> votes</h3>
+
+<%= link_to 'edit', edit_question_answer_path(@question, @answer) %>
+<%= link_to 'destroy', question_answer_path(@question, @answer), :method => :delete, data: {:confirm => 'Are you sure?'} %>
+<br/>
+<%= link_to 'Back to Question', question_path(@question) %>
+<br/>
+<%= link_to 'Home', questions_path %>

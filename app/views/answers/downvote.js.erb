@@ -1,0 +1,5 @@
+var answer_div = $('.answer'+<%=@answer.id%>);
+
+var updated_answer_div = $("<%= escape_javascript(render @answer) %>");
+answer_div.replaceWith(updated_answer_div);
+
