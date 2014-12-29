@@ -2,6 +2,6 @@
   <%= link_to "^", upvote_poem_path(poem), remote: true, method: :patch %>
   <%= link_to "v", downvote_poem_path(poem), remote:true, method: :patch %>
   <%=poem.votes%>
-  <%= link_to poem.content, poem %>
+  <%= link_to poem.title, poem %>
 </li>
 

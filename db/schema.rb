@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20141119185807) do
   add_index "comments", ["poem_id"], name: "index_comments_on_poem_id", using: :btree
 
   create_table "poems", force: true do |t|
+    t.text     "title"
     t.text     "content"
     t.integer  "votes",      default: 0
     t.datetime "created_at"

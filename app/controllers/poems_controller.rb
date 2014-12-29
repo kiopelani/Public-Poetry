@@ -70,7 +70,7 @@ class PoemsController < ApplicationController
   private
 
   def poem_params
-    params.require(:poem).permit(:content)
+    params.require(:poem).permit(:title, :content)
   end
 
 end

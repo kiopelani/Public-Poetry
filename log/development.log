@@ -698,3 +698,503 @@ Processing by PoemsController#show as HTML
   [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."poem_id" = $1  [["poem_id", 2]]
   Rendered poems/show.html.erb within layouts/application (3.8ms)
 Completed 200 OK in 78ms (Views: 76.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/poems/2" for 127.0.0.1 at 2014-12-29 11:15:40 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PoemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPoem Load (0.4ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered shared/_form_errors.html.erb (1.7ms)
+  Rendered comments/_form.html.erb (362.2ms)
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."poem_id" = $1[0m  [["poem_id", 2]]
+  Rendered poems/show.html.erb within layouts/application (369.3ms)
+Completed 200 OK in 543ms (Views: 510.2ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-29 11:15:40 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-29 11:15:40 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-29 11:15:40 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-29 11:15:40 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-29 11:15:40 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-29 11:15:40 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-29 11:15:40 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-29 11:15:42 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  [1m[35mPoem Load (0.3ms)[0m  SELECT "poems".* FROM "poems"
+  Rendered poems/_poem.html.erb (1.2ms)
+  Rendered poems/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 39ms (Views: 38.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-29 11:15:43 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  [1m[36mPoem Load (0.2ms)[0m  [1mSELECT "poems".* FROM "poems"[0m
+  Rendered poems/_poem.html.erb (0.4ms)
+  Rendered poems/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-29 11:15:43 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-29 11:15:43 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-29 11:15:43 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-29 11:15:43 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-29 11:15:43 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-29 11:15:43 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-29 11:15:43 -0800
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-29 11:16:15 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-29 11:16:15 -0800
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePoems (20141119184218)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "poems" ("id" serial primary key, "title" text, "content" text, "votes" integer DEFAULT 0, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141119184218"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20141119185807)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "content" text, "votes" integer DEFAULT 0, "poem_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.5ms)[0m  CREATE  INDEX  "index_comments_on_poem_id" ON "comments"  ("poem_id")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141119185807"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-29 11:19:03 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (1.6ms)
+  [1m[35mPoem Load (0.5ms)[0m  SELECT "poems".* FROM "poems"
+  Rendered poems/index.html.erb within layouts/application (336.7ms)
+Completed 200 OK in 448ms (Views: 433.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-29 11:19:04 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-29 11:19:04 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-29 11:19:04 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-29 11:19:04 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-29 11:19:04 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-29 11:19:04 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-29 11:19:04 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-29 11:20:25 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.1ms)
+  [1m[36mPoem Load (0.2ms)[0m  [1mSELECT "poems".* FROM "poems"[0m
+  Rendered poems/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 65ms (Views: 63.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-29 11:20:26 -0800
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-29 11:20:26 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-29 11:20:26 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-29 11:20:26 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-29 11:20:26 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-29 11:20:26 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-29 11:20:26 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-29 11:20:50 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  [1m[35mPoem Load (0.2ms)[0m  SELECT "poems".* FROM "poems"
+  Rendered poems/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 34ms (Views: 33.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-29 11:20:50 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-29 11:20:50 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-29 11:20:50 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-29 11:20:50 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-29 11:20:50 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-29 11:20:50 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-29 11:20:50 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-29 11:21:51 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.1ms)
+  [1m[36mPoem Load (0.3ms)[0m  [1mSELECT "poems".* FROM "poems"[0m
+  Rendered poems/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 47ms (Views: 39.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-29 11:21:51 -0800
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-29 11:21:51 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-29 11:21:51 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-29 11:21:51 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-29 11:21:51 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-29 11:21:51 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-29 11:21:51 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-29 11:22:00 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  [1m[35mPoem Load (0.2ms)[0m  SELECT "poems".* FROM "poems"
+  Rendered poems/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 33ms (Views: 32.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-29 11:22:00 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-29 11:22:00 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-29 11:22:00 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-29 11:22:00 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-29 11:22:00 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-29 11:22:00 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-29 11:22:00 -0800
+
+
+Started POST "/poems" for 127.0.0.1 at 2014-12-29 11:22:43 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PoemsController#create as JS
+  Parameters: {"utf8"=>"✓", "poem"=>{"title"=>"Roses", "content"=>"Roses are red, violets are blue"}, "commit"=>"Add"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Roses are red, violets are blue"], ["created_at", "2014-12-29 19:22:43.710784"], ["title", "Roses"], ["updated_at", "2014-12-29 19:22:43.710784"]]
+  [1m[35m (1.3ms)[0m  COMMIT
+  Rendered poems/_poem.html.erb (1.2ms)
+  Rendered poems/create.js.erb (4.5ms)
+Completed 200 OK in 36ms (Views: 10.3ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/poems/1" for 127.0.0.1 at 2014-12-29 11:23:52 -0800
+Processing by PoemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPoem Load (0.4ms)[0m  [1mSELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_form_errors.html.erb (0.3ms)
+  Rendered comments/_form.html.erb (330.7ms)
+  [1m[35mComment Load (0.4ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."poem_id" = $1  [["poem_id", 1]]
+  Rendered poems/show.html.erb within layouts/application (333.9ms)
+Completed 200 OK in 480ms (Views: 456.5ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/poems" for 127.0.0.1 at 2014-12-29 11:23:58 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  [1m[36mPoem Load (0.2ms)[0m  [1mSELECT "poems".* FROM "poems"[0m
+  Rendered poems/_poem.html.erb (1.0ms)
+  Rendered poems/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 37ms (Views: 36.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/poems" for 127.0.0.1 at 2014-12-29 11:24:19 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.3ms)
+  [1m[35mPoem Load (0.2ms)[0m  SELECT "poems".* FROM "poems"
+  Rendered poems/_poem.html.erb (0.8ms)
+  Rendered poems/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 68ms (Views: 67.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-29 11:24:19 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-29 11:24:19 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-29 11:24:19 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-29 11:24:19 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-29 11:24:19 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-29 11:24:19 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-29 11:24:19 -0800
+
+
+Started GET "/poems/1" for 127.0.0.1 at 2014-12-29 11:24:24 -0800
+Processing by PoemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPoem Load (0.2ms)[0m  [1mSELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  Rendered comments/_form.html.erb (1.9ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."poem_id" = $1  [["poem_id", 1]]
+  Rendered poems/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 38ms (Views: 35.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/poems" for 127.0.0.1 at 2014-12-29 11:24:27 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  [1m[36mPoem Load (0.2ms)[0m  [1mSELECT "poems".* FROM "poems"[0m
+  Rendered poems/_poem.html.erb (1.0ms)
+  Rendered poems/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 37ms (Views: 35.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/poems/1" for 127.0.0.1 at 2014-12-29 11:24:29 -0800
+Processing by PoemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPoem Load (0.2ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  Rendered comments/_form.html.erb (1.9ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."poem_id" = $1[0m  [["poem_id", 1]]
+  Rendered poems/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 37ms (Views: 34.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/poems/1/edit" for 127.0.0.1 at 2014-12-29 11:24:31 -0800
+Processing by PoemsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPoem Load (0.2ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_form_errors.html.erb (0.1ms)
+  Rendered poems/edit.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 79ms (Views: 77.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/poems/1/edit" for 127.0.0.1 at 2014-12-29 11:24:57 -0800
+Processing by PoemsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPoem Load (0.2ms)[0m  [1mSELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  Rendered poems/edit.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-29 11:24:57 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-29 11:24:57 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-29 11:24:57 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-29 11:24:57 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-29 11:24:57 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-29 11:24:57 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-29 11:24:57 -0800
+
+
+Started GET "/poems/1/edit" for 127.0.0.1 at 2014-12-29 11:25:08 -0800
+Processing by PoemsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPoem Load (0.3ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered shared/_form_errors.html.erb (0.1ms)
+  Rendered poems/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 40ms (Views: 37.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-29 11:25:08 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-29 11:25:08 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-29 11:25:08 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-29 11:25:08 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-29 11:25:08 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-29 11:25:08 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-29 11:25:08 -0800
+
+
+Started GET "/poems/1/edit" for 127.0.0.1 at 2014-12-29 11:25:18 -0800
+Processing by PoemsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPoem Load (0.2ms)[0m  [1mSELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_form_errors.html.erb (0.1ms)
+  Rendered poems/edit.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 76ms (Views: 74.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-29 11:25:18 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-29 11:25:18 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-29 11:25:18 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-29 11:25:18 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-29 11:25:18 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-29 11:25:18 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-29 11:25:18 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-29 11:26:16 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  [1m[35mPoem Load (0.2ms)[0m  SELECT "poems".* FROM "poems"
+  Rendered poems/_poem.html.erb (0.5ms)
+  Rendered poems/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 37ms (Views: 36.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-29 11:26:16 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  [1m[36mPoem Load (0.3ms)[0m  [1mSELECT "poems".* FROM "poems"[0m
+  Rendered poems/_poem.html.erb (0.5ms)
+  Rendered poems/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 34ms (Views: 33.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-29 11:26:16 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-29 11:26:16 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-29 11:26:16 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-29 11:26:16 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-29 11:26:16 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-29 11:26:16 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-29 11:26:16 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-29 11:26:31 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.1ms)
+  [1m[35mPoem Load (0.3ms)[0m  SELECT "poems".* FROM "poems"
+  Rendered poems/_poem.html.erb (0.5ms)
+  Rendered poems/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 35ms (Views: 34.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-29 11:26:31 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-29 11:26:31 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-29 11:26:31 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-29 11:26:31 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-29 11:26:31 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-29 11:26:31 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-29 11:26:31 -0800
