@@ -1,4 +1,0 @@
-var question_div = $('.question'+<%=@question.id%>);
-
-var updated_question_div = $("<%= escape_javascript(render @question) %>");
-question_div.replaceWith(updated_question_div);

@@ -1,0 +1,4 @@
+var poem_div = $('.poem'+<%=@poem.id%>);
+
+var updated_poem_div = $("<%= escape_javascript(render @poem) %>");
+poem_div.replaceWith(updated_poem_div);

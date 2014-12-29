@@ -1,80 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/spec/controllers/answers_controller_spec.rb": [
-        1,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/spec/rails_helper.rb": [
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null
-      ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/config/environment.rb": [
+      "/Users/Kiope/Code/public_poetry/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/config/application.rb": [
+      "/Users/Kiope/Code/public_poetry/config/application.rb": [
         1,
         null,
         null,
@@ -106,13 +40,13 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/config/boot.rb": [
+      "/Users/Kiope/Code/public_poetry/config/boot.rb": [
         null,
         1,
         null,
         1
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/config/environments/test.rb": [
+      "/Users/Kiope/Code/public_poetry/config/environments/test.rb": [
         1,
         null,
         null,
@@ -153,7 +87,7 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/config/initializers/assets.rb": [
+      "/Users/Kiope/Code/public_poetry/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -163,7 +97,7 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/config/initializers/backtrace_silencers.rb": [
+      "/Users/Kiope/Code/public_poetry/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -172,18 +106,18 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/config/initializers/cookies_serializer.rb": [
+      "/Users/Kiope/Code/public_poetry/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/config/initializers/filter_parameter_logging.rb": [
+      "/Users/Kiope/Code/public_poetry/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/config/initializers/inflections.rb": [
+      "/Users/Kiope/Code/public_poetry/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -201,18 +135,18 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/config/initializers/mime_types.rb": [
+      "/Users/Kiope/Code/public_poetry/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/config/initializers/session_store.rb": [
+      "/Users/Kiope/Code/public_poetry/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/config/initializers/wrap_parameters.rb": [
+      "/Users/Kiope/Code/public_poetry/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -228,7 +162,7 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/spec/factories.rb": [
+      "/Users/Kiope/Code/public_poetry/spec/factories.rb": [
         1,
         1,
         18,
@@ -236,7 +170,7 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/config/routes.rb": [
+      "/Users/Kiope/Code/public_poetry/config/routes.rb": [
         1,
         null,
         1,
@@ -247,6 +181,8 @@
         1,
         null,
         null,
+        1,
+        1,
         null,
         null,
         null,
@@ -304,19 +240,28 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/app/helpers/answers_helper.rb": [
+      "/Users/Kiope/Code/public_poetry/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/app/helpers/application_helper.rb": [
+      "/Users/Kiope/Code/public_poetry/app/helpers/poems_helper.rb": [
         1,
+        1,
+        1,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/app/helpers/questions_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/spec/controllers/questions_controller_spec.rb": [
+      "/Users/Kiope/Code/public_poetry/spec/controllers/poems_controller_spec.rb": [
         1,
         null,
         1,
@@ -400,26 +345,30 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/app/controllers/questions_controller.rb": [
+      "/Users/Kiope/Code/public_poetry/app/controllers/poems_controller.rb": [
         1,
-        1,
-        null,
         1,
         7,
         7,
         null,
         null,
+        null,
         1,
         3,
         3,
+        3,
+        4,
         2,
         null,
         1,
+        2,
         1,
         null,
         null,
         null,
+        null,
         1,
+        8,
         8,
         8,
         null,
@@ -474,14 +423,14 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/app/controllers/application_controller.rb": [
+      "/Users/Kiope/Code/public_poetry/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/spec/features/questions/edit.html.erb_spec.rb": [
+      "/Users/Kiope/Code/public_poetry/spec/features/poems/edit.html.erb_spec.rb": [
         1,
         null,
         1,
@@ -496,7 +445,7 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/spec/features/questions/index.html.erb_spec.rb": [
+      "/Users/Kiope/Code/public_poetry/spec/features/poems/index.html.erb_spec.rb": [
         1,
         null,
         1,
@@ -533,7 +482,7 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/spec/features/questions/show.html.erb_spec.rb": [
+      "/Users/Kiope/Code/public_poetry/spec/features/poems/show.html.erb_spec.rb": [
         1,
         null,
         1,
@@ -575,7 +524,7 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/spec/helpers/answers_helper_spec.rb": [
+      "/Users/Kiope/Code/public_poetry/spec/helpers/comments_helper_spec.rb": [
         1,
         null,
         null,
@@ -592,7 +541,7 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/spec/helpers/questions_helper_spec.rb": [
+      "/Users/Kiope/Code/public_poetry/spec/helpers/poems_helper_spec.rb": [
         1,
         null,
         null,
@@ -609,14 +558,14 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/spec/models/answer_spec.rb": [
+      "/Users/Kiope/Code/public_poetry/spec/models/comment_spec.rb": [
         1,
         null,
         null,
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/spec/models/question_spec.rb": [
+      "/Users/Kiope/Code/public_poetry/spec/models/poem_spec.rb": [
         1,
         null,
         1,
@@ -625,7 +574,7 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/app/models/question.rb": [
+      "/Users/Kiope/Code/public_poetry/app/models/poem.rb": [
         1,
         1,
         1,
@@ -640,28 +589,40 @@
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/spec/views/questions/index.html.erb_spec.rb": [
+      "/Users/Kiope/Code/public_poetry/spec/views/poems/index.html.erb_spec.rb": [
         1,
         null,
         null,
         null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/app/models/answer.rb": [
+      "/Users/Kiope/Code/public_poetry/app/models/comment.rb": [
         1,
         1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
         null
       ],
-      "/Users/Kiope/Documents/DBC/Phase_3/stack-overflow-workshop-challenge/dbc_overflow/app/controllers/answers_controller.rb": [
+      "/Users/Kiope/Code/public_poetry/app/controllers/comments_controller.rb": [
         1,
+        1,
+        0,
+        0,
         null,
         null,
-        null,
-        null,
         1,
         1,
         1,
         1,
+        1,
+        2,
         1,
         null,
         0,
@@ -669,11 +630,54 @@
         null,
         null,
         null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
         null,
         null,
         null,
         1,
+        0,
+        0,
+        0,
+        0,
         null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
         1,
         1,
         null,
@@ -681,6 +685,6 @@
         null
       ]
     },
-    "timestamp": 1416535891
+    "timestamp": 1419880439
   }
 }

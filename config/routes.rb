@@ -1,21 +1,21 @@
 Rails.application.routes.draw do
 
-  resources :questions do
+  resources :poems do
     member do
       patch 'upvote'
       patch 'downvote'
     end
-    resources :answers
+    resources :comments
   end
 
-  patch 'questions/:question_id/answers/:id/upvote' => 'answers#upvote', as: :upvote_answer
-  patch 'questions/:question_id/answers/:id/downvote' => 'answers#downvote', as: :downvote_answer
+  patch 'poems/:poem_id/comments/:id/upvote' => 'comments#upvote', as: :upvote_comment
+  patch 'poems/:poem_id/comments/:id/downvote' => 'comments#downvote', as: :downvote_comment
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'questions#index'
+  root 'poems#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

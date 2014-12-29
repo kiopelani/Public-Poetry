@@ -16,17 +16,17 @@ ActiveRecord::Schema.define(version: 20141119185807) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "answers", force: true do |t|
+  create_table "comments", force: true do |t|
     t.text     "content"
-    t.integer  "votes",       default: 0
-    t.integer  "question_id"
+    t.integer  "votes",      default: 0
+    t.integer  "poem_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+  add_index "comments", ["poem_id"], name: "index_comments_on_poem_id", using: :btree
 
-  create_table "questions", force: true do |t|
+  create_table "poems", force: true do |t|
     t.text     "content"
     t.integer  "votes",      default: 0
     t.datetime "created_at"

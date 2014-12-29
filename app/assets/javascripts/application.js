@@ -14,4 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require ../../../vendor/assets/javascripts/bootstrap
-//= require bootstrap_test

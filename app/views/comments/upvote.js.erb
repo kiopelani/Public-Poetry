@@ -1,0 +1,4 @@
+var comment_div = $('.comment'+<%=@comment.id%>);
+
+var updated_comment_div = $("<%= escape_javascript(render @comment) %>");
+comment_div.replaceWith(updated_comment_div);

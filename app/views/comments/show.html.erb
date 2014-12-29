@@ -1,0 +1,10 @@
+<h1><%= @poem.content %></h1>
+<h2><%= @comment.content %></h2>
+<h3><%= @comment.votes %> votes</h3>
+
+<%= link_to 'edit', edit_poem_comment_path(@poem, @comment) %>
+<%= link_to 'destroy', poem_comment_path(@poem, @comment), :method => :delete, data: {:confirm => 'Are you sure?'} %>
+<br/>
+<%= link_to 'Back to Poem', poem_path(@poem) %>
+<br/>
+<%= link_to 'Home', poems_path %>

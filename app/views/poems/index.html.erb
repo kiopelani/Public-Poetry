@@ -1,0 +1,26 @@
+<div class="row"><div class="col-md-12"></div></div>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <h1>Public Poetry</h1>
+    <div class="poem-form">
+      <div class="errors"></div>
+      <%= render 'shared/form_errors', :object => @poem %>
+      <%= form_for @poem, remote: true do |f| %>
+      <%= f.label :poem %>
+      <%= f.text_field :content %>
+      <%= f.submit "Add" %>
+      <% end %>
+    </div>
+
+    <ul class="poems">
+      <% @poems.sort_by(&:created_at).reverse.each do |poem| %>
+      <%= render 'poem', :poem => poem %>
+      <% end %>
+    </ul>
+
+<!--   <blockquote><%= @quote %></blockquote>
+ -->
+</div>
+  <div class="col-md-4"></div>
+</div>

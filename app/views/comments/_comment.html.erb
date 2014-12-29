@@ -1,0 +1,7 @@
+<li class="comment<%=comment.id%>">
+          <%= link_to "^", upvote_comment_path(@poem, comment), remote: true, method: :patch %>
+          <%= link_to "v", downvote_comment_path(@poem, comment), remote:true, method: :patch %>
+        <%=comment.votes%>
+        <%= link_to comment.content, poem_comment_path(@poem, comment) %></li>
+
+

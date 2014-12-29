@@ -1,7 +1,0 @@
-<li class="answer<%=answer.id%>">
-          <%= link_to "^", upvote_answer_path(@question, answer), remote: true, method: :patch %>
-          <%= link_to "v", downvote_answer_path(@question, answer), remote:true, method: :patch %>
-        <%=answer.votes%>
-        <%= link_to answer.content, question_answer_path(@question, answer) %></li>
-
-
