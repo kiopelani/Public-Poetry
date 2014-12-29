@@ -1,0 +1,11 @@
+.vote {
+  float: left;
+}
+
+.poem-title {
+  float: left;
+}
+
+.poem-content {
+  clear:both;
+}

@@ -1,8 +1,10 @@
-<h1><%= @poem.title %></h1>
-<h2><%= @poem.content %></h2>
+<div class="vote"><%= render 'poem', :poem => @poem %></div>
+<div class="poem-title"><h1><%= @poem.title %></h1></div>
+<div class="poem-content">
+  <h2><em><%= @poem.content %></em></h2>
+</div>
 <!-- <h3><%= @poem.votes %> votes</h3>
  -->
-<%= render 'poem', :poem => @poem %>
 
 
 <%= link_to 'edit', edit_poem_path(@poem) %>

@@ -18,7 +18,9 @@
     <h4>All Poems</h4>
     <ul class="poems">
       <% @poems.sort_by(&:votes).reverse.each do |poem| %>
-        <%= render 'poem_title', :poem => poem %>
+        <li class="poem<%=poem.id%>">
+          <%= render 'poem_title', :poem => poem %>
+        </li>
       <% end %>
     </ul>
 
