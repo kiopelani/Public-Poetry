@@ -9,3 +9,12 @@
 .poem-content {
   clear:both;
 }
+
+.upvote {}
+
+.downvote {}
+
+.vote-count {
+  font-size: 2em;
+  text-align: center;
+}
