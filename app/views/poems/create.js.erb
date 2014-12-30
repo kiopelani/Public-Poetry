@@ -1,2 +1,4 @@
-$("<%= escape_javascript(render 'poem_title', :poem => @poem) %>").appendTo('.poems');
+$("<li><%= escape_javascript(render 'poemtitle', :poem => poem) %></li>").appendTo('.poems');
+console.log("<%= poem.title %>");
+
 

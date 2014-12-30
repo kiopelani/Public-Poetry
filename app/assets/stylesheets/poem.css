@@ -57,5 +57,11 @@ body {
   background-color: black;
 }
 
+.pen {
+  width: 250px;
+  border: 1px solid pink;
+
+}
+
 
 

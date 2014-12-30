@@ -10,7 +10,7 @@ class PoemsController < ApplicationController
     respond_to do |format|
       if @poem.save
         format.html {redirect_to root_path}
-        format.js {render :create}
+        format.js {render :create, locals: {poem: @poem}}
       else
         @poems = Poem.all
         format.html {render :index}

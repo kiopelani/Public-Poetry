@@ -1789,3 +1789,317 @@ Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.2ms)
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
   [1m[35m (0.2ms)[0m  BEGIN
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (266.9ms)[0m  [1mDROP DATABASE IF EXISTS "dbc_overflow_test"[0m
+  [1m[35m (821.1ms)[0m  CREATE DATABASE "dbc_overflow_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (25.6ms)[0m  CREATE TABLE "comments" ("id" serial primary key, "content" text, "votes" integer DEFAULT 0, "poem_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_comments_on_poem_id" ON "comments" USING btree ("poem_id")[0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "poems" ("id" serial primary key, "title" text, "content" text, "votes" integer DEFAULT 0, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (1.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141119185807')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141119184218')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (2.8ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by PoemsController#index as HTML
+  Rendered poems/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 1.9ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by PoemsController#index as HTML
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by PoemsController#index as HTML
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.9ms)[0m  [1mINSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Qui autem excepturi voluptas eum consequuntur dolorum deserunt."], ["created_at", "2014-12-30 18:33:50.020060"], ["title", "aut"], ["updated_at", "2014-12-30 18:33:50.020060"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PoemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPoem Load (2.1ms)[0m  [1mSELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 20ms (Views: 1.2ms | ActiveRecord: 3.6ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "poems"
+Processing by PoemsController#create as HTML
+  Parameters: {"poem"=>{"title"=>"maxime", "content"=>"Et dicta veritatis maiores ad repellendus architecto minima quam.", "votes"=>"0"}}
+Unpermitted parameters: votes
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "Et dicta veritatis maiores ad repellendus architecto minima quam."], ["created_at", "2014-12-30 18:33:50.079420"], ["title", "maxime"], ["updated_at", "2014-12-30 18:33:50.079420"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "poems"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "poems"[0m
+Processing by PoemsController#create as HTML
+  Parameters: {"poem"=>{"content"=>""}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "poems"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "Sequi et voluptatem quisquam quod."], ["created_at", "2014-12-30 18:33:50.091543"], ["title", "amet"], ["updated_at", "2014-12-30 18:33:50.091543"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PoemsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPoem Load (0.2ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 3]]
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "Autem magni officiis rerum doloremque."], ["created_at", "2014-12-30 18:33:50.098270"], ["title", "autem"], ["updated_at", "2014-12-30 18:33:50.098270"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PoemsController#update as HTML
+  Parameters: {"poem"=>{"content"=>"I've been changed!"}, "id"=>"4"}
+  [1m[35mPoem Load (0.2ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "poems" SET "content" = $1, "updated_at" = $2 WHERE "poems"."id" = 4  [["content", "I've been changed!"], ["updated_at", "2014-12-30 18:33:50.101686"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/poems/4
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Eos repellat aut officiis maxime est harum dolorum."], ["created_at", "2014-12-30 18:33:50.106337"], ["title", "ab"], ["updated_at", "2014-12-30 18:33:50.106337"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PoemsController#update as HTML
+  Parameters: {"poem"=>{"content"=>nil}, "id"=>"5"}
+  [1m[36mPoem Load (0.2ms)[0m  [1mSELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Laudantium porro et aut ab adipisci."], ["created_at", "2014-12-30 18:33:50.115232"], ["title", "dignissimos"], ["updated_at", "2014-12-30 18:33:50.115232"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PoemsController#destroy as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPoem Load (0.2ms)[0m  [1mSELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "poems" WHERE "poems"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "Voluptas tempore ut recusandae doloremque nam omnis eveniet."], ["created_at", "2014-12-30 18:33:50.121857"], ["title", "earum"], ["updated_at", "2014-12-30 18:33:50.121857"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PoemsController#destroy as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPoem Load (0.2ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "poems" WHERE "poems"."id" = $1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+  [1m[35mPoem Load (0.2ms)[0m  SELECT "poems".* FROM "poems"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "Id nobis repellat quas at odit sint occaecati."], ["created_at", "2014-12-30 18:33:50.132576"], ["title", "eaque"], ["updated_at", "2014-12-30 18:33:50.132576"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PoemsController#destroy as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mPoem Load (0.1ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "poems" WHERE "poems"."id" = $1  [["id", 8]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Deleniti natus amet occaecati sunt."], ["created_at", "2014-12-30 18:33:50.139850"], ["title", "vel"], ["updated_at", "2014-12-30 18:33:50.139850"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/poems/9/edit" for 127.0.0.1 at 2014-12-30 10:33:50 -0800
+Processing by PoemsController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPoem Load (0.3ms)[0m  [1mSELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered shared/_form_errors.html.erb (0.3ms)
+Completed 200 OK in 3580ms (Views: 3571.2ms | ActiveRecord: 0.2ms)
+Started PATCH "/poems/9" for 127.0.0.1 at 2014-12-30 10:33:53 -0800
+Processing by PoemsController#update as HTML
+  Parameters: {"utf8"=>"✓", "poem"=>{"title"=>"vel", "content"=>"Is there life on mars?"}, "commit"=>"Update", "id"=>"9"}
+  [1m[35mPoem Load (0.2ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "poems" SET "content" = $1, "updated_at" = $2 WHERE "poems"."id" = 9  [["content", "Is there life on mars?"], ["updated_at", "2014-12-30 18:33:53.747247"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/poems/9
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+Started GET "/poems/9" for 127.0.0.1 at 2014-12-30 10:33:53 -0800
+Processing by PoemsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mPoem Load (0.1ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 9]]
+  Rendered poems/_poem.html.erb (0.9ms)
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."poem_id" = $1[0m  [["poem_id", 9]]
+  Rendered shared/_form_errors.html.erb (0.1ms)
+  Rendered comments/_form.html.erb (6.9ms)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "In et voluptas et."], ["created_at", "2014-12-30 18:33:53.769196"], ["title", "magni"], ["updated_at", "2014-12-30 18:33:53.769196"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "Cum iure doloribus earum rem inventore."], ["created_at", "2014-12-30 18:33:53.771543"], ["title", "aspernatur"], ["updated_at", "2014-12-30 18:33:53.771543"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-12-30 10:33:53 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  [1m[35mPoem Load (0.2ms)[0m  SELECT "poems".* FROM "poems"
+  Rendered poems/_poem_title.html.erb (0.7ms)
+  Rendered poems/_poem_title.html.erb (0.2ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "In illum quo repellendus et porro quasi."], ["created_at", "2014-12-30 18:33:53.788674"], ["title", "eos"], ["updated_at", "2014-12-30 18:33:53.788674"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Qui maiores maxime officia aut eum aliquam voluptates cumque."], ["created_at", "2014-12-30 18:33:53.790394"], ["title", "ullam"], ["updated_at", "2014-12-30 18:33:53.790394"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/" for 127.0.0.1 at 2014-12-30 10:33:53 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  [1m[36mPoem Load (0.2ms)[0m  [1mSELECT "poems".* FROM "poems"[0m
+  Rendered poems/_poem_title.html.erb (0.2ms)
+  Rendered poems/_poem_title.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.2ms)
+Started GET "/poems/12" for 127.0.0.1 at 2014-12-30 10:33:53 -0800
+Processing by PoemsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mPoem Load (0.1ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 12]]
+  Rendered poems/_poem.html.erb (0.4ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."poem_id" = $1[0m  [["poem_id", 12]]
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  Rendered comments/_form.html.erb (1.2ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Nobis animi autem aut quam sed natus."], ["created_at", "2014-12-30 18:33:53.808445"], ["title", "omnis"], ["updated_at", "2014-12-30 18:33:53.808445"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "Quos ratione assumenda molestias consectetur quod voluptas."], ["created_at", "2014-12-30 18:33:53.810699"], ["title", "exercitationem"], ["updated_at", "2014-12-30 18:33:53.810699"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-12-30 10:33:53 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  [1m[35mPoem Load (0.2ms)[0m  SELECT "poems".* FROM "poems"
+  Rendered poems/_poem_title.html.erb (0.2ms)
+  Rendered poems/_poem_title.html.erb (0.2ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.2ms)
+Started POST "/poems" for 127.0.0.1 at 2014-12-30 10:33:53 -0800
+Processing by PoemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "poem"=>{"title"=>"Human or Machine", "content"=>"Do androids dream of electric sheep?"}, "commit"=>"Add"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "Do androids dream of electric sheep?"], ["created_at", "2014-12-30 18:33:53.875742"], ["title", "Human or Machine"], ["updated_at", "2014-12-30 18:33:53.875742"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2014-12-30 10:33:53 -0800
+Processing by PoemsController#index as HTML
+  Rendered shared/_form_errors.html.erb (0.1ms)
+  [1m[35mPoem Load (0.2ms)[0m  SELECT "poems".* FROM "poems"
+  Rendered poems/_poem_title.html.erb (0.2ms)
+  Rendered poems/_poem_title.html.erb (0.2ms)
+  Rendered poems/_poem_title.html.erb (0.2ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "Illo rerum adipisci dolorem."], ["created_at", "2014-12-30 18:33:53.890004"], ["title", "quidem"], ["updated_at", "2014-12-30 18:33:53.890004"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/poems/17" for 127.0.0.1 at 2014-12-30 10:33:53 -0800
+Processing by PoemsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mPoem Load (0.1ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 17]]
+  Rendered poems/_poem.html.erb (0.4ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."poem_id" = $1[0m  [["poem_id", 17]]
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  Rendered comments/_form.html.erb (1.2ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "poems" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Quod omnis aut est at ea aut corrupti harum."], ["created_at", "2014-12-30 18:33:53.900973"], ["title", "vitae"], ["updated_at", "2014-12-30 18:33:53.900973"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/poems/18" for 127.0.0.1 at 2014-12-30 10:33:53 -0800
+Processing by PoemsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mPoem Load (0.2ms)[0m  [1mSELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1[0m  [["id", 18]]
+  Rendered poems/_poem.html.erb (0.5ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."poem_id" = $1  [["poem_id", 18]]
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  Rendered comments/_form.html.erb (1.5ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "poems" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["content", "Roses are red, violets are blue"], ["created_at", "2014-12-30 18:33:53.913908"], ["updated_at", "2014-12-30 18:33:53.913908"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (12.1ms)[0m  [1mINSERT INTO "comments" ("content", "created_at", "poem_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "This poem is amazing!"], ["created_at", "2014-12-30 18:33:53.920220"], ["poem_id", 19], ["updated_at", "2014-12-30 18:33:53.920220"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/poems/19" for 127.0.0.1 at 2014-12-30 10:33:53 -0800
+Processing by PoemsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mPoem Load (0.2ms)[0m  [1mSELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1[0m  [["id", 19]]
+  Rendered poems/_poem.html.erb (0.5ms)
+  [1m[35mComment Load (2.8ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."poem_id" = $1  [["poem_id", 19]]
+  Rendered comments/_comment.html.erb (1.1ms)
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  Rendered comments/_form.html.erb (1.5ms)
+Completed 200 OK in 11ms (Views: 6.1ms | ActiveRecord: 3.0ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."poem_id" = $1[0m  [["poem_id", 19]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "poems" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "Roses are red, violets are blue"], ["created_at", "2014-12-30 18:33:53.953630"], ["updated_at", "2014-12-30 18:33:53.953630"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("content", "created_at", "poem_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "This poem is amazing!"], ["created_at", "2014-12-30 18:33:53.955648"], ["poem_id", 20], ["updated_at", "2014-12-30 18:33:53.955648"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/poems/20" for 127.0.0.1 at 2014-12-30 10:33:53 -0800
+Processing by PoemsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[35mPoem Load (0.1ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 20]]
+  Rendered poems/_poem.html.erb (0.4ms)
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."poem_id" = $1[0m  [["poem_id", 20]]
+  Rendered comments/_comment.html.erb (0.4ms)
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  Rendered comments/_form.html.erb (1.2ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.2ms)
+Started POST "/poems/20/comments" for 127.0.0.1 at 2014-12-30 10:33:53 -0800
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "comment"=>{"content"=>"This is my favorite poem ever!"}, "commit"=>"Create Comment", "poem_id"=>"20"}
+  [1m[35mPoem Load (0.2ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 20]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("content", "created_at", "poem_id", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "This is my favorite poem ever!"], ["created_at", "2014-12-30 18:33:53.975813"], ["poem_id", 20], ["updated_at", "2014-12-30 18:33:53.975813"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/poems/20
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+Started GET "/poems/20" for 127.0.0.1 at 2014-12-30 10:33:53 -0800
+Processing by PoemsController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[35mPoem Load (0.2ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 20]]
+  Rendered poems/_poem.html.erb (0.6ms)
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."poem_id" = $1[0m  [["poem_id", 20]]
+  Rendered comments/_comment.html.erb (0.5ms)
+  Rendered comments/_comment.html.erb (0.5ms)
+  Rendered shared/_form_errors.html.erb (0.0ms)
+  Rendered comments/_form.html.erb (1.7ms)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
