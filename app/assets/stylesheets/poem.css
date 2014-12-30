@@ -8,6 +8,8 @@
 
 .poem-content {
   clear:both;
+  font-size: 1em;
+  margin: 5% 10% 5% 10%;
 }
 
 .upvote {}
@@ -41,4 +43,12 @@
 .comment-form {
   clear: both;
 }
+
+.poem-form {
+}
+
+.poem-form-inputs {
+}
+
+
 

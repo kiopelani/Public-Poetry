@@ -1,21 +1,7 @@
-<div class="row"><div class="col-md-12"></div></div>
 <div class="row">
-  <div class="col-md-4"></div>
+  <div class="col-md-4"><img class="pen" src="http://www.endlessicons.com/wp-content/uploads/2012/12/fountain-pen-icon-614x460.png"></div>
   <div class="col-md-4">
     <h1>Public Poetry</h1>
-    <div class="poem-form">
-      <div class="errors"></div>
-      <%= render 'shared/form_errors', :object => @poem %>
-      <%= form_for @poem, remote: true do |f| %>
-      <%= f.label :title %>
-      <%= f.text_field :title %><br />
-      <%= f.label :content %>
-      <%= f.text_area :content %><br />
-      <%= f.submit "Add" %>
-      <% end %>
-    </div>
-
-    <h4>All Poems</h4>
     <ul class="poems">
       <% @poems.sort_by(&:votes).reverse.each do |poem| %>
         <li class="poem<%=poem.id%>">
@@ -23,6 +9,20 @@
         </li>
       <% end %>
     </ul>
+    <h3>Add a Poem</h3>
+    <div class="poem-form">
+      <div class="errors"></div>
+      <%= render 'shared/form_errors', :object => @poem %>
+      <%= form_for @poem, remote: true, :html => { :class => "poem-form" } do |f| %>
+      <div class="poem-form-inputs">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <%= f.label :content %>
+        <%= f.text_field :content %>
+        <%= f.submit "Add" %>
+      </div>
+      <% end %>
+    </div>
 
 <!--   <blockquote><%= @quote %></blockquote>
  -->
