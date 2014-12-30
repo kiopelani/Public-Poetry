@@ -7,6 +7,8 @@ body {
 
 .poem-title {
   float: left;
+  padding-top: 1%;
+  margin-left: 10px;
 }
 
 .poem-content {
@@ -34,13 +36,15 @@ body {
 }
 
 .comments li {
-  padding-bottom: 50px;
+  padding-top: 2%;
+  padding-left: 2%;
+  padding-bottom: 70px;
   border: 1px solid gray;
 }
 
 .lower-nav {
   clear: both;
-  border: 1px solid red;
+  text-align: center;
 }
 
 .comment-form {
@@ -64,13 +68,11 @@ body {
 .create-bar {
   margin-top: 2%;
   margin-left: 1%;
-    box-shadow: 2px 10px 30px 5px #888888;
-padding-top: 2%;
-padding-bottom: 2%;
-padding-left: 3.5%;
-padding-right: .5%;
-
-
+  box-shadow: 2px 10px 30px 5px #888888;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 3.5%;
+  padding-right: .5%;
 }
 
 .slam {
@@ -79,4 +81,9 @@ padding-right: .5%;
 
 }
 
+.comment-link {
+  margin-top: 20px;
+  padding-left: 5%;
+  float: left;
+}
 

@@ -1,12 +1,12 @@
 <span class="poem<%=poem.id%>">
     <div class="upvote">
-    <%= link_to image_tag('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-up-b-128.png', :width => 30), upvote_poem_path(poem), remote: true, method: :patch %>
+    <%= link_to image_tag('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-up-b-128.png', :width => 40), upvote_poem_path(poem), remote: true, method: :patch %>
     </div>
     <div class="vote-count">
     <%=poem.votes%>
   </div>
   <div class="downvote">
-    <%= link_to image_tag("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-down-b-512.png", :width => 30), downvote_poem_path(poem), remote:true, method: :patch %>
+    <%= link_to image_tag("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-down-b-512.png", :width => 40), downvote_poem_path(poem), remote:true, method: :patch %>
   </div>
   </span>
 
