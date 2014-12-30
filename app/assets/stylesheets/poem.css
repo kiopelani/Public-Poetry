@@ -58,10 +58,25 @@ body {
 }
 
 .pen {
-  width: 250px;
-  border: 1px solid pink;
+  width: 170px;
+}
+
+.create-bar {
+  margin-top: 2%;
+  margin-left: 1%;
+    box-shadow: 2px 10px 30px 5px #888888;
+padding-top: 2%;
+padding-bottom: 2%;
+padding-left: 3.5%;
+padding-right: .5%;
+
 
 }
 
+.slam {
+  margin-top: 2%;
+  margin-left: 2%;
+
+}
 
 

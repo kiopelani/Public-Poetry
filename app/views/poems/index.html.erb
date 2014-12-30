@@ -1,9 +1,10 @@
 
-<!-- <div class="row-fluid">
+<div class="row-fluid">
 
- -->
 
- <div class="col-md-4">
+
+
+  <div class="col-md-3 create-bar">
         <img class="pen" src="http://cdn.builtinchicago.org/sites/default/files/imagecache/Original/images/maillift_pen_icon_transfer_files_no_background.jpg">
 <div class="poem-form">
       <div class="errors"></div>
@@ -18,10 +19,9 @@
       </div>
       <% end %>
     </div>
-
 </div>
+ <div class="col-md-7 slam">
 
-  <div class="col-md-6">
     <h1>The Slam</h1>
     <ul class="poems">
       <% @poems.sort_by(&:votes).reverse.each do |poem| %>
@@ -36,5 +36,4 @@
 </div>
 
 
-<!-- </div>
- -->
+</div>
