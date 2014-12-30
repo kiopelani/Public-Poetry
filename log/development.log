@@ -32150,3 +32150,70 @@ Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-30 12:29:10 -
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-30 12:29:10 -0800
+
+
+Started GET "/poems/5/comments/14" for 127.0.0.1 at 2014-12-30 12:29:52 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CommentsController#show as HTML
+  Parameters: {"poem_id"=>"5", "id"=>"14"}
+  [1m[35mPoem Load (0.5ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  Rendered comments/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 173ms (Views: 140.7ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-30 12:29:52 -0800
+
+
+Started GET "/assets/poem.css?body=1" for 127.0.0.1 at 2014-12-30 12:29:52 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-30 12:29:52 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-30 12:29:52 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-30 12:29:52 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-30 12:29:52 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-30 12:29:52 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-30 12:29:52 -0800
+
+
+Started GET "/poems/5/comments/14" for 127.0.0.1 at 2014-12-30 12:30:13 -0800
+Processing by CommentsController#show as HTML
+  Parameters: {"poem_id"=>"5", "id"=>"14"}
+  [1m[35mPoem Load (0.2ms)[0m  SELECT  "poems".* FROM "poems"  WHERE "poems"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments"  WHERE "comments"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  Rendered comments/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/_bootstrap.css?body=1" for 127.0.0.1 at 2014-12-30 12:30:13 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-30 12:30:13 -0800
+
+
+Started GET "/assets/poem.css?body=1" for 127.0.0.1 at 2014-12-30 12:30:13 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-30 12:30:13 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-30 12:30:13 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-30 12:30:13 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-12-30 12:30:13 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-30 12:30:13 -0800
