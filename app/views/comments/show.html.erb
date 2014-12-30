@@ -1,10 +1,28 @@
-<h1><%= @poem.title %></h1>
-<h2><%= @comment.content %></h2>
-<h3><%= @comment.votes %> votes</h3>
+<div class="row-fluid">
+  <div class="col-xs-12">
+    <h1>Comment for: <em><%= @poem.title %></em></h1>
+  </div>
+</div>
 
-<%= link_to 'edit', edit_poem_comment_path(@poem, @comment) %>
-<%= link_to 'destroy', poem_comment_path(@poem, @comment), :method => :delete, data: {:confirm => 'Are you sure?'} %>
-<br/>
-<%= link_to 'Back to Poem', poem_path(@poem) %>
-<br/>
-<%= link_to 'Home', poems_path %>
+<div class="row-fluid">
+  <div class="col-xs-12">
+    <div class="comment-info">
+    <h3>"<%= @comment.content %>"</h3>
+      <h4><%= @comment.votes %> votes</h4>
+      <h5>Said At: <%= @comment.created_at %></h5>
+    </div>
+  </div>
+</div>
+
+
+ <div class="row-fluid">
+  <div class="col-xs-12">
+
+    <div class="lower-nav">
+    <%= link_to image_tag("https://cdn0.iconfinder.com/data/icons/typicons-2/24/arrow-back-512.png", :width => 40), poem_path(@poem) %>
+    <%= link_to image_tag("http://uxrepo.com/static/icon-sets/font-awesome/svg/home.svg", :width => 40), poems_path %>
+    <%= link_to image_tag("http://icons.iconarchive.com/icons/custom-icon-design/mono-general-2/512/edit-icon.png", :width => 40), edit_poem_comment_path(@poem, @comment) %>
+    <%= link_to image_tag("http://megaicons.net/static/img/icons_sizes/8/178/512/editing-delete-icon.png", :width => 40), poem_comment_path(@poem, @comment), :method => :delete, data: {:confirm => 'Are you sure?'} %>
+
+    </div>
+  </div>
