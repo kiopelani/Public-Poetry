@@ -1,5 +1,13 @@
-<ul>
-  <% @results.each do |poem| %>
-    <li><%= poem.title %></li>
-  <% end %>
-</ul>
+<h2> Search Results </h2>
+
+<% if @results.count < 1 %>
+    <%= "No results found" %>
+<% else %>
+  <ul>
+    <% @results.sort_by(&:votes).reverse.each do |poem| %>
+      <li class="poem<%=poem.id%>">
+        <%= render 'poemtitle', :poem => poem %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

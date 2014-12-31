@@ -21,6 +21,8 @@ body {
 
 .poems {
   font-family: 'Cinzel', serif;
+  font-size: 1em;
+
 }
 
 .upvote {}
@@ -30,6 +32,18 @@ body {
 .vote-count {
   font-size: 2em;
   text-align: center;
+}
+
+.small-vote-count {
+  font-size: 1em;
+}
+
+.poem-list-link {
+  font-size: .5em;
+}
+
+.small-poem {
+  float: left;
 }
 
 .comment-vote-count {
