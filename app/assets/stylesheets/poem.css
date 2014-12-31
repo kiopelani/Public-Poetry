@@ -22,7 +22,6 @@ body {
 .poems {
   font-family: 'Cinzel', serif;
   font-size: 1em;
-
 }
 
 .upvote {}
@@ -100,7 +99,7 @@ h1 {
 }
 
 .pen {
-  width: 170px;
+  width: 160px;
 }
 
 .create-bar {
@@ -111,7 +110,8 @@ h1 {
   padding-bottom: 2%;
   padding-left: 3.5%;
   padding-right: .5%;
-}
+  width: 250px;
+  }
 
 .slam {
   margin-top: 2%;
