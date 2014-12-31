@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'poems/search' => 'poems#search', as: :poems_search
+
   resources :poems do
     member do
       patch 'upvote'
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
+
 
   patch 'poems/:poem_id/comments/:id/upvote' => 'comments#upvote', as: :upvote_comment
   patch 'poems/:poem_id/comments/:id/downvote' => 'comments#downvote', as: :downvote_comment

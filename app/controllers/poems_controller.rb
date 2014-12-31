@@ -67,10 +67,14 @@ class PoemsController < ApplicationController
     end
   end
 
-  private
+  def search
+    @results = Poem.where("#{:title} LIKE (?)", "%#{params[:title]}%")
+  end
 
+  private
   def poem_params
     params.require(:poem).permit(:title, :content)
   end
+
 
 end

@@ -262,45 +262,6 @@
         null,
         null
       ],
-      "/Users/Kiope/Code/public_poetry/db/schema.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
       "/Users/Kiope/Code/public_poetry/spec/controllers/poems_controller_spec.rb": [
         1,
         null,
@@ -726,6 +687,6 @@
         null
       ]
     },
-    "timestamp": 1419964434
+    "timestamp": 1419976696
   }
 }
